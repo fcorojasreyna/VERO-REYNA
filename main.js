@@ -11,31 +11,53 @@ function iconFor(name) {
   return ICONS[name] || ICONS.link;
 }
 
-function renderLinks() {
-  const container = document.getElementById("links");
-  container.innerHTML = LINKS.map(
-    (link) => `
-    <a class="link-card" href="${link.url}" target="_blank" rel="noopener noreferrer">
-      <span class="link-icon">${iconFor(link.icon)}</span>
-      <span class="link-text">
-        <span class="link-title">${link.title}</span>
-        ${link.subtitle ? `<span class="link-subtitle">${link.subtitle}</span>` : ""}
+function subLinkHTML(link) {
+  return `
+    <a class="sub-link" href="${link.url}" target="_blank" rel="noopener noreferrer">
+      <span class="sub-link-icon">${iconFor(link.icon)}</span>
+      <span class="sub-link-text">
+        <span class="sub-link-title">${link.title}</span>
+        ${link.subtitle ? `<span class="sub-link-subtitle">${link.subtitle}</span>` : ""}
       </span>
       <span class="link-arrow">&rsaquo;</span>
-    </a>`
-  ).join("");
+    </a>`;
 }
 
-function renderSocials() {
-  const container = document.getElementById("socials");
-  container.innerHTML = SOCIAL_LINKS.map(
-    (s) => `
-    <a class="social-icon" href="${s.url}" target="_blank" rel="noopener noreferrer" aria-label="${s.label}">
-      ${iconFor(s.icon)}
-    </a>`
-  ).join("");
+function groupHTML(group) {
+  return `
+    <section class="group-card" style="--accent: ${group.color}">
+      <header class="group-header">
+        <img class="group-logo" src="${group.logo}" alt="${group.name}">
+        <div class="group-heading">
+          <h2 class="group-title">${group.name}</h2>
+          <p class="group-description">${group.description}</p>
+        </div>
+      </header>
+      <div class="group-links">
+        ${group.links.map(subLinkHTML).join("")}
+      </div>
+    </section>`;
 }
 
+function brandCardHTML(brand) {
+  return `
+    <a class="brand-card" style="--accent: ${brand.color}" href="${brand.url}" target="_blank" rel="noopener noreferrer">
+      <img class="brand-logo" src="${brand.logo}" alt="${brand.title}">
+      <span class="brand-text">
+        <span class="brand-title">${brand.title}</span>
+        <span class="brand-description">${brand.description}</span>
+        <span class="brand-subtitle">${brand.subtitle}</span>
+      </span>
+      <span class="link-arrow">&rsaquo;</span>
+    </a>`;
+}
+
+function renderLinks() {
+  const container = document.getElementById("links");
+  container.innerHTML =
+    groupHTML(ME_GROUP) + BRAND_LINKS.map(brandCardHTML).join("");
+}
+
+document.getElementById("ig-pill-icon").innerHTML = iconFor("instagram");
 document.getElementById("year").textContent = new Date().getFullYear();
 renderLinks();
-renderSocials();

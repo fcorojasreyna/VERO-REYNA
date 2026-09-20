@@ -6,7 +6,7 @@
 const ME_GROUP = {
   name: "Mujer es Evolución",
   description: "Comunidad y podcast para mujeres en constante evolución personal y profesional.",
-  logo: "assets/mujer-es-evolucion-logo.jpg",
+  logo: "mujer-es-evolucion-logo.jpg",
   color: "#9b4fd9",
   links: [
     {
@@ -30,7 +30,7 @@ const BRAND_LINKS = [
     subtitle: "mia.mujeresevolucion.com",
     description: "Formación y certificación SEP-CONOCER para iniciar tu carrera como asesora inmobiliaria, 100% online.",
     url: "https://mia.mujeresevolucion.com",
-    logo: "assets/mujer-es-evolucion-logo.jpg",
+    logo: "mujer-es-evolucion-logo.jpg",
     color: "#9b4fd9",
   },
   {
@@ -38,7 +38,7 @@ const BRAND_LINKS = [
     subtitle: "nextflight.mujeresevolucion.com",
     description: "Academia para generar ingresos digitales, marca personal y ventas, compatible con la maternidad.",
     url: "https://nextflight.mujeresevolucion.com",
-    logo: "assets/nextflight-logo.png",
+    logo: "nextflight-logo.png",
     color: "#c98858",
   },
   {
@@ -46,7 +46,7 @@ const BRAND_LINKS = [
     subtitle: "bahamas.mujeresevolucion.com",
     description: "Crucero grupal de 4 días por el Caribe (Miami · Nassau · Ocean Cay), 15–19 de marzo 2027.",
     url: "https://bahamas.mujeresevolucion.com",
-    logo: "assets/incruises-logo.webp",
+    logo: "incruises-logo.webp",
     color: "#f5a623",
   },
 ];
